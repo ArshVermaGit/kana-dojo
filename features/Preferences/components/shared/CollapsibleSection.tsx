@@ -21,19 +21,19 @@ interface CollapsibleSectionProps {
 const levelStyles = {
   section: {
     header: 'text-3xl py-4 pl-4',
-    border: 'border-l-20 border-(--border-color)',
+    border: 'border-l-30 border-(--border-color)',
     chevronSize: 24,
     gap: 'gap-4',
   },
   subsection: {
     header: 'text-2xl py-3 pl-4',
-    border: 'border-l-10 border-(--border-color)',
+    border: 'border-l-[12px] border-(--border-color)',
     chevronSize: 22,
     gap: 'gap-3',
   },
   subsubsection: {
     header: 'text-xl py-2 pl-4',
-    border: 'border-l-5 border-(--border-color)',
+    border: 'border-l-[4.8px] border-(--border-color)',
     chevronSize: 20,
     gap: 'gap-2',
   },
@@ -91,7 +91,7 @@ const CollapsibleSection = ({
           'hover:cursor-pointer',
           styles.header,
           fullBorder
-            ? 'border-l-20 border-(--border-color) px-4 py-3'
+            ? 'border-l-30 border-(--border-color) px-4 py-3'
             : styles.border,
         )}
         onClick={handleToggle}
