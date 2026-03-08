@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import { useClick } from '@/shared/hooks/useAudio';
 import { Joystick, Palette, Wand2 } from 'lucide-react';
 
 const ACTIVE_SECTION_OFFSET = 156;
+const CLICK_ACTIVE_LOCK_MS = 450;
 const SCROLL_TIMEOUT_MS = 350;
 const SCROLL_CONTAINER_SELECTOR = '[data-scroll-restoration-id="container"]';
 
@@ -47,6 +48,8 @@ const getScrollContainer = () =>
 const PreferencesSectionNav = () => {
   const [activeSection, setActiveSection] = useState<SectionId>('behavior');
   const { playClick } = useClick();
+  const clickLockTimeoutRef = useRef<number | null>(null);
+  const clickedSectionRef = useRef<SectionId | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -57,6 +60,15 @@ const PreferencesSectionNav = () => {
     const updateActiveSection = () => {
       const sectionElements = getSectionElements();
       if (sectionElements.length === 0) return;
+
+      if (clickedSectionRef.current) {
+        setActiveSection(currentSection =>
+          currentSection === clickedSectionRef.current
+            ? currentSection
+            : clickedSectionRef.current!,
+        );
+        return;
+      }
 
       const triggerLine =
         scrollContainer.getBoundingClientRect().top + ACTIVE_SECTION_OFFSET;
@@ -85,6 +97,9 @@ const PreferencesSectionNav = () => {
     window.addEventListener('resize', updateActiveSection);
 
     return () => {
+      if (clickLockTimeoutRef.current) {
+        window.clearTimeout(clickLockTimeoutRef.current);
+      }
       scrollContainer.removeEventListener('scroll', updateActiveSection);
       window.removeEventListener('resize', updateActiveSection);
     };
@@ -101,6 +116,11 @@ const PreferencesSectionNav = () => {
     const scrollContainer = getScrollContainer();
     if (!section || !scrollContainer) return;
 
+    if (clickLockTimeoutRef.current) {
+      window.clearTimeout(clickLockTimeoutRef.current);
+    }
+
+    clickedSectionRef.current = sectionId;
     setActiveSection(sectionId);
 
     const containerRect = scrollContainer.getBoundingClientRect();
@@ -114,6 +134,10 @@ const PreferencesSectionNav = () => {
       top: Math.max(0, targetTop),
       behavior: 'smooth',
     });
+
+    clickLockTimeoutRef.current = window.setTimeout(() => {
+      clickedSectionRef.current = null;
+    }, CLICK_ACTIVE_LOCK_MS);
 
     window.setTimeout(() => {
       window.history.replaceState(null, '', `#${sectionId}`);
