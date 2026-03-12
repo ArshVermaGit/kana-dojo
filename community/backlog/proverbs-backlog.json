@@ -205,7 +205,7 @@
     "romaji": "Kaeru no ko wa kaeru",
     "english": "A frog's child is a frog",
     "meaning": "Like father, like son",
-    "completed": false,
+    "completed": true,
     "issued": false
   },
   {
@@ -215,7 +215,7 @@
     "english": "Preaching Buddha to a horse's ear",
     "meaning": "Wasting good advice on someone who won't listen",
     "completed": false,
-    "issued": false
+    "issued": true
   },
   {
     "id": 25,
