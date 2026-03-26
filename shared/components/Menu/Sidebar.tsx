@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 import { ReactNode, useEffect, useRef, memo, useState } from 'react';
 import { useInputPreferences } from '@/features/Preferences';
 import { removeLocaleFromPath } from '@/shared/lib/pathUtils';

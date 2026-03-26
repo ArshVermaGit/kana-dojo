@@ -7,7 +7,7 @@ import { useKanaSelection } from '@/features/Kana';
 import { getSelectionLabels } from '@/shared/lib/selectionFormatting';
 import { usePathname } from 'next/navigation';
 import { removeLocaleFromPath } from '@/shared/lib/pathUtils';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 import { CircleCheck, Trash } from 'lucide-react';
 import { ActionButton } from '@/shared/components/ui/ActionButton';
 import { AnimatePresence, motion } from 'framer-motion';

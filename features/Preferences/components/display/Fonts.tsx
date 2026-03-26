@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import { useState, useMemo } from 'react';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 import usePreferencesStore from '@/features/Preferences/store/usePreferencesStore';
 import { buttonBorderStyles } from '@/shared/lib/styles';
 import fonts from '../../data/fonts/fonts';

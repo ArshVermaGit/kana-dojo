@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { Fragment, lazy, Suspense, useState, useEffect } from 'react';
 import { Link } from '@/core/i18n/routing';
 import Banner from './Banner';
@@ -17,7 +17,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import clsx from 'clsx';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 import { useThemePreferences } from '@/features/Preferences';
 import useDecorationsStore from '@/shared/store/useDecorationsStore';
 import { useMediaQuery } from 'react-responsive';

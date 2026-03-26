@@ -4,7 +4,7 @@ import { kana } from '@/features/Kana/data/kana';
 import useKanaStore from '@/features/Kana/store/useKanaStore';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { useClick, useCorrect, useError } from '@/shared/hooks/useAudio';
+import { useClick, useCorrect, useError } from '@/shared/hooks/generic/useAudio';
 // import GameIntel from '@/shared/components/Game/GameIntel';
 import { useStopwatch } from 'react-timer-hook';
 import { useStatsStore } from '@/features/Progress';
@@ -15,7 +15,7 @@ import { getGlobalAdaptiveSelector } from '@/shared/lib/adaptiveSelection';
 import { GameBottomBar } from '@/shared/components/Game/GameBottomBar';
 import { isKanaInputAnswerCorrect } from '@/features/Kana/lib/isKanaInputAnswerCorrect';
 import useClassicSessionStore from '@/shared/store/useClassicSessionStore';
-import { useProgressiveTargetLength } from '@/shared/hooks/useProgressiveTargetLength';
+import { useProgressiveTargetLength } from '@/shared/hooks/game/useProgressiveTargetLength';
 
 // Get the global adaptive selector for weighted character selection
 const adaptiveSelector = getGlobalAdaptiveSelector();

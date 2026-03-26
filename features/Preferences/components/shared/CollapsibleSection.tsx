@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import { useState, useEffect, ReactNode } from 'react';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 import { ChevronUp } from 'lucide-react';
 
 interface CollapsibleSectionProps {

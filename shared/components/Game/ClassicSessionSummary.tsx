@@ -13,7 +13,7 @@ import {
   Activity,
 } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 
 interface ClassicSessionSummaryProps {
   title?: string;

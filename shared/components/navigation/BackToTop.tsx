@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState, type CSSProperties } from 're
 import { ChevronsUp } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { useClick } from '@/shared/hooks/useAudio';
+import { useClick } from '@/shared/hooks/generic/useAudio';
 
 const animationKeyframes = `
 @keyframes explode-btt {
