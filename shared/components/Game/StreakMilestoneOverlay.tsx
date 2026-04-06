@@ -281,12 +281,7 @@ export default function StreakMilestoneOverlay({
           aria-label={`${milestone} in a row`}
         >
           {/* Floating Kanji Background */}
-          <motion.div
-            initial='hidden'
-            animate='visible'
-            className='fixed inset-0'
-            style={{ zIndex: -10 }}
-          >
+          <div className='fixed inset-0' style={{ zIndex: -10 }}>
             {floatingKanji.map((kanji, index) => (
               <FloatingKanji
                 key={`kanji-${index}`}
@@ -298,7 +293,7 @@ export default function StreakMilestoneOverlay({
                 size={charSize}
               />
             ))}
-          </motion.div>
+          </div>
 
           {/* Main Content */}
           <motion.div

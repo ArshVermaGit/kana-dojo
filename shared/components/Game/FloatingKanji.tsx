@@ -41,11 +41,16 @@ const FloatingKanji = memo(
     return (
       <motion.span
         variants={kanjiVariants}
+        initial='hidden'
         animate={{
+          opacity: 0.9,
+          scale: 1,
           left: `${position.x}px`,
           top: `${position.y}px`,
         }}
         transition={{
+          opacity: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+          scale: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
           left: { type: 'spring', stiffness: 100, damping: 20 },
           top: { type: 'spring', stiffness: 100, damping: 20 },
         }}
