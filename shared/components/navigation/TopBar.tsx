@@ -4,7 +4,7 @@ import { Link, usePathname } from '@/core/i18n/routing';
 import { useClick } from '@/shared/hooks/generic/useAudio';
 import { cn } from '@/shared/lib/utils';
 import clsx from 'clsx';
-import { Sparkles, House, Star, type LucideIcon } from 'lucide-react';
+import { Sparkles, House, BookOpen, type LucideIcon } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { removeLocaleFromPath } from '@/shared/lib/pathUtils';
 import { motion } from 'framer-motion';
@@ -66,6 +66,7 @@ export default function TopBar() {
   }, []);
 
   const navItems: NavItem[] = [
+    { name: 'Academy', href: '/academy', icon: BookOpen },
     { name: 'Kana', href: '/kana', charIcon: 'あ' },
     { name: 'Kanji', href: '/kanji', charIcon: '字' },
     { name: 'Vocab', href: '/vocabulary', charIcon: '語' },
@@ -74,7 +75,7 @@ export default function TopBar() {
 
   const mobileNavItems: NavItem[] = [
     { name: 'Home', href: '/', icon: House },
-    { name: 'Progress', href: '/progress', icon: Star },
+    { name: 'Academy', href: '/academy', icon: BookOpen },
     { name: 'Kana', href: '/kana', charIcon: 'あ' },
     { name: 'Vocab', href: '/vocabulary', charIcon: '語' },
     { name: 'Kanji', href: '/kanji', charIcon: '字' },
@@ -136,9 +137,9 @@ export default function TopBar() {
                       'border-b-4 border-(--secondary-color-accent)',
                       'transition-all duration-200',
                       'motion-safe:animate-float [--float-distance:-3px]',
-                      index === 0 && '[animation-delay:0ms]',
-                      index === 1 && '[animation-delay:800ms]',
-                      index === 2 && '[animation-delay:1600ms]',
+                      index === 1 && '[animation-delay:0ms]',
+                      index === 2 && '[animation-delay:800ms]',
+                      index === 3 && '[animation-delay:1600ms]',
                     )}
                   >
                     {item.charIcon}
@@ -151,7 +152,9 @@ export default function TopBar() {
                         'bg-(--secondary-color) text-(--background-color)',
                         'border-b-4 border-(--secondary-color-accent)',
                         'transition-all duration-200',
-                        'motion-safe:animate-float [--float-distance:-3px] [animation-delay:2400ms]',
+                        'motion-safe:animate-float [--float-distance:-3px]',
+                        index === 0 && '[animation-delay:0ms]',
+                        index === 4 && '[animation-delay:2400ms]',
                       )}
                     >
                       <item.icon className='size-4' />
