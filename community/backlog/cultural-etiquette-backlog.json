@@ -627,7 +627,7 @@
     "note": "駅・店頭では順番厳守。",
     "id": 70,
     "issued": false,
-    "completed": false,
+    "completed": true,
     "completedBy": "armorbreak001",
     "completedPR": 13163
   },
@@ -907,7 +907,7 @@
     "dont": "片手で受け取ってすぐポケットに入れる",
     "note": "商談中は机上に置くのが一般的。",
     "id": 101,
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
